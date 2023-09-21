@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const guessForm = document.querySelector("#guessForm")
     const newPokeBtn = document.querySelector("#new")
     const pokeContainer = document.querySelector("#pokemonContainer")
 
@@ -18,11 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
             //Create Card
             pokeContainer.innerHTML = `
             <img src="${pokeImage}">
-            <h4>${pokeName}</h4>
             `
+
+            //Handle Form
+            guessForm.addEventListener('submit', function(e) {
+                e.preventDefault()
+                const userGuess = guessForm.guess.value;
+                if(userGuess == pokeName) {
+                    console.log("correct")
+                } else {
+                    console.log("incorrect")
+                }
+            })  
         })
-
-       
-
     }  
 })
