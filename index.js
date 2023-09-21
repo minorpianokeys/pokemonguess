@@ -24,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
             //Handle Form
             guessForm.addEventListener('submit', function(e) {
                 e.preventDefault()
-                const userGuess = guessForm.guess.value;
+                const userGuess = guessForm.guess.value.toLowerCase();
+                console.log(userGuess)
                 if(userGuess == pokeName) {
                     console.log("correct")
                 } else {
