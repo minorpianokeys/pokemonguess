@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             allPokeArr.push(pokeObj)
         }
         guessForm.guess.value = "";
-        if (allPokeArr.length < 5) {
+        if (allPokeArr.length < 10) {
             handleNewPoke();
         } else {
             handleResults();
@@ -69,9 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
             return poke.answer === "correct";
         })
 
-        resultsContainer.innerHTML = `
+
+        const scoreContainer = document.createElement("div");
+        scoreContainer.innerHTML = `
         <h2 class="score">Score: ${correctAnswers.length}/10</h2>
         `
+        resultsContainer.appendChild(scoreContainer)
+
         
         //Create Card for each Pokemon
         allPokeArr.map(function(poke) {
@@ -79,19 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
 
+    const cardContainer = document.createElement('div')
+    resultsContainer.appendChild(cardContainer)
+    cardContainer.classList = "cardContainer";
+
     function handleCard(poke) {
         const card = document.createElement('div');
-        resultsContainer.appendChild(card);
+        cardContainer.appendChild(card);
+        card.classList = "card";
         const pokeNameCapital = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
         card.innerHTML = `
-        <h2>#${poke.number} ${pokeNameCapital}: ${poke.answer}</h2>
+        <h4>#${poke.number} ${pokeNameCapital}: ${poke.answer}</h4>
         <img src="${poke.image}">
         `
-        if (poke.answer === "correct") {
-            card.classList = "correct";
-        } else {
-            card.classList = "incorrect";
-        }
+        // if (poke.answer === "correct") {
+        //     card.classList = "correct";
+        // } else {
+        //     card.classList = "incorrect";
+        // }
     }
 })
 

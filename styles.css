@@ -1,5 +1,5 @@
 body {
-    max-width: 500px;
+    max-width: 1200px;
     margin: auto;
     text-align: center;
     background-color: darkred;
@@ -36,16 +36,23 @@ body {
     font-family: futura;
 }
 
-.resultsContainer {
+.cardContainer {
     display: flex;
-    align-items: center;
-    color: white
+    flex-wrap: wrap;
+    color: white;
+    justify-content: center;
 }
 
 .score {
+    font-family: futura;
     font-size: 30px;
+    color: white;
 }
 
-.incorrect img {
-    max-width: 100px;
+.card {
+    margin: 30px;
+}
+
+.card img {
+    max-width: 150px;
 }
