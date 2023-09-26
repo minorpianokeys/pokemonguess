@@ -36,6 +36,16 @@ body {
     font-family: futura;
 }
 
-/* .resultsContainer {
+.resultsContainer {
+    display: flex;
+    align-items: center;
+    color: white
+}
 
-} */
+.score {
+    font-size: 30px;
+}
+
+.incorrect img {
+    max-width: 100px;
+}

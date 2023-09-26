@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             allPokeArr.push(pokeObj)
         }
         guessForm.guess.value = "";
-        if (allPokeArr.length < 10) {
+        if (allPokeArr.length < 5) {
             handleNewPoke();
         } else {
             handleResults();
@@ -68,13 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const correctAnswers = allPokeArr.filter(function (poke) {
             return poke.answer === "correct";
         })
-        console.log(correctAnswers.length)
 
         resultsContainer.innerHTML = `
-        <h2>Score: ${correctAnswers.length}/10</h2>
+        <h2 class="score">Score: ${correctAnswers.length}/10</h2>
         `
         
-
         //Create Card for each Pokemon
         allPokeArr.map(function(poke) {
             handleCard(poke);
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleCard(poke) {
         const card = document.createElement('div');
-        resultsContainer.appendChild(card)
+        resultsContainer.appendChild(card);
         const pokeNameCapital = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
         card.innerHTML = `
         <h2>#${poke.number} ${pokeNameCapital}: ${poke.answer}</h2>
