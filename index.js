@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
             pokeObj.answer = "incorrect";
             answerArr.push(pokeObj)
         }
-        console.log(answerArr)
         guessForm.guess.value = "";
         if (answerArr.length < 10) {
             handleNewPoke();
@@ -61,7 +60,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleResults() {
-        console.log("GAME OVER")
+        guessForm.style.visibility = "hidden";
+        console.log(answerArr)
+        const correctAnswers = answerArr.filter(function(answer) {
+            return answer.answer === "correct";
+        })
+        const incorrectAnswers = answerArr.filter(function(answer) {
+            return answer.answer === "incorrect";
+        })
+        console.log(correctAnswers)
+        console.log(incorrectAnswers)
+        pokeContainer.innerHTML = `
+        <h2>GAME OVER</h2>
+        `
     }
 })
 
