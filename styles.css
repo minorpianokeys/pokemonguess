@@ -2,8 +2,36 @@ body {
     max-width: 500px;
     margin: auto;
     text-align: center;
+    background-color: darkred;
 }
 
-#guessForm {
+.guessForm {
     visibility: hidden;
+}
+
+.header {
+    color: white;
+    font-family: futura;
+    font-size: 40px;
+}
+
+.start {
+    padding: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-family: futura;
+    font-size: 50px;
+    border-radius: 50px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 40%;
+}
+
+.textBox {
+
+}
+
+.submitBtn {
+    font-family: futura;
 }

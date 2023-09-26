@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     startBtn.addEventListener('click', function() {
         handleNewPoke()
-        startBtn.style.visibility = "hidden";
+        startBtn.remove();
         guessForm.style.visibility = "visible";
     })
 
