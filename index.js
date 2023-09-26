@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     guessForm.addEventListener('submit', function(e) {
         e.preventDefault()
         const userGuess = guessForm.guess.value.toLowerCase();
-        if(userGuess === pokeName) {
+        if(userGuess === pokeObj.name) {
             console.log("correct")
         } else {
             console.log("incorrect")
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         handleNewPoke()
     })
 
-    let pokeName;
+    let pokeObj = {}
     
     function handleNewPoke() {
         
@@ -32,11 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokeNum}`)
         .then(res => res.json())
         .then(function(data) {   
-            pokeName = data.name;
+            const pokeName = data.name;
             const pokeImage = data.sprites.other["official-artwork"].front_default;
             const pokeType = data.types[0].type.name;
             
-            const pokeObj = {
+            pokeObj = {
                 name: pokeName,
                 image: pokeImage,
                 number: data.id,
