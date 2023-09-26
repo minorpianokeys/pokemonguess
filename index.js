@@ -67,16 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
         allPokeArr.map(function(poke) {
             handleCard(poke);
         })
-
     }
 
     function handleCard(poke) {
         const card = document.createElement('div');
         resultsContainer.appendChild(card)
+        const pokeNameCapital = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
         card.innerHTML = `
-        <h2>${poke.name}: ${poke.answer}</h2>
+        <h2>#${poke.number} ${pokeNameCapital}: ${poke.answer}</h2>
         <img src="${poke.image}">
-        <p>#${poke.number}</p>
         <p>${poke.type}</p>
         `
         if (poke.answer === "correct") {
