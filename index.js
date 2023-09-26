@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         card.innerHTML = `
         <h2>#${poke.number} ${pokeNameCapital}: ${poke.answer}</h2>
         <img src="${poke.image}">
-        <p>${poke.type}</p>
         `
         if (poke.answer === "correct") {
             card.classList = "correct";
