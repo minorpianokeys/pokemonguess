@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const guessForm = document.querySelector("#guessForm")
-    const newPokeBtn = document.querySelector("#new")
+    const startBtn = document.querySelector("#start")
     const pokeContainer = document.querySelector("#pokemonContainer")
 
 
-    newPokeBtn.addEventListener('click', function() {
+    startBtn.addEventListener('click', function() {
         handleNewPoke()
+        startBtn.style.visibility = "hidden";
+        guessForm.style.visibility = "visible";
     })
 
     //Handle Guess
@@ -16,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("correct")
         } else {
             console.log("incorrect")
-        }  
+        }
+        guessForm.guess.value = "";
+        handleNewPoke()
     })
 
     let pokeName;
@@ -30,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function(data) {
             pokeName = data.name;
             const pokeImage = data.sprites.other["official-artwork"].front_default;
-            console.log(pokeName)
 
             //Create Card
             pokeContainer.innerHTML = `
