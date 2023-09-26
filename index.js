@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (allPokeArr.length < 5) {
             handleNewPoke();
         } else {
-            pokeContainer.remove();
             handleResults();
         }
     })
@@ -62,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleResults() {
-        guessForm.style.visibility = "hidden";
-        console.log(allPokeArr)
+        pokeContainer.remove();
+        guessForm.remove();
 
         allPokeArr.map(function(poke) {
             handleCard(poke);
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const card = document.createElement('div');
         resultsContainer.appendChild(card)
         card.innerHTML = `
-        <h2>${poke.name}</h2>
+        <h2>${poke.name}: ${poke.answer}</h2>
         <img src="${poke.image}">
         <p>#${poke.number}</p>
         <p>${poke.type}</p>
