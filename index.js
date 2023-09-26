@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             allPokeArr.push(pokeObj)
         }
         guessForm.guess.value = "";
-        if (allPokeArr.length < 5) {
+        if (allPokeArr.length < 10) {
             handleNewPoke();
         } else {
             handleResults();
@@ -64,6 +64,18 @@ document.addEventListener('DOMContentLoaded', function() {
         pokeContainer.remove();
         guessForm.remove();
 
+        //Calculate Score
+        const correctAnswers = allPokeArr.filter(function (poke) {
+            return poke.answer === "correct";
+        })
+        console.log(correctAnswers.length)
+
+        resultsContainer.innerHTML = `
+        <h2>Score: ${correctAnswers.length}/10</h2>
+        `
+        
+
+        //Create Card for each Pokemon
         allPokeArr.map(function(poke) {
             handleCard(poke);
         })
