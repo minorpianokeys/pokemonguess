@@ -23,7 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         console.log(answerArr)
         guessForm.guess.value = "";
-        handleNewPoke()
+        if (answerArr.length < 10) {
+            handleNewPoke();
+        } else {
+            handleResults();
+        }
     })
 
     let pokeObj = {};
@@ -54,6 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <img src="${pokeObj.image}">
             `
         })      
+    }
+
+    function handleResults() {
+        console.log("GAME OVER")
     }
 })
 
