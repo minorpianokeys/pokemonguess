@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const guessForm = document.querySelector("#guessForm")
     const startBtn = document.querySelector("#start")
     const pokeContainer = document.querySelector("#pokemonContainer")
+    const resultsContainer = document.querySelector("#resultsContainer")
 
 
     startBtn.addEventListener('click', function() {
@@ -16,21 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const userGuess = guessForm.guess.value.toLowerCase();
         if(userGuess === pokeObj.name) {
             pokeObj.answer = "correct";
-            answerArr.push(pokeObj)
+            allPokeArr.push(pokeObj)
         } else {
             pokeObj.answer = "incorrect";
-            answerArr.push(pokeObj)
+            allPokeArr.push(pokeObj)
         }
         guessForm.guess.value = "";
-        if (answerArr.length < 10) {
+        if (allPokeArr.length < 5) {
             handleNewPoke();
         } else {
+            pokeContainer.remove();
             handleResults();
         }
     })
 
     let pokeObj = {};
-    let answerArr = []
+    let allPokeArr = []
     
     function handleNewPoke() {
         
@@ -61,18 +63,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleResults() {
         guessForm.style.visibility = "hidden";
-        console.log(answerArr)
-        const correctAnswers = answerArr.filter(function(answer) {
-            return answer.answer === "correct";
+        console.log(allPokeArr)
+
+        allPokeArr.map(function(poke) {
+            handleCard(poke);
         })
-        const incorrectAnswers = answerArr.filter(function(answer) {
-            return answer.answer === "incorrect";
-        })
-        console.log(correctAnswers)
-        console.log(incorrectAnswers)
-        pokeContainer.innerHTML = `
-        <h2>GAME OVER</h2>
+
+    }
+
+    function handleCard(poke) {
+        const card = document.createElement('div');
+        resultsContainer.appendChild(card)
+        card.innerHTML = `
+        <h2>${poke.name}</h2>
+        <img src="${poke.image}">
+        <p>#${poke.number}</p>
+        <p>${poke.type}</p>
         `
+        if (poke.answer === "correct") {
+            card.classList = "correct";
+        } else {
+            card.classList = "incorrect";
+        }
     }
 })
 
