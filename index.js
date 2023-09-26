@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault()
         const userGuess = guessForm.guess.value.toLowerCase();
         if(userGuess === pokeObj.name) {
-            console.log("correct")
+            pokeObj.answer = "correct";
         } else {
-            console.log("incorrect")
+            pokeObj.answer = "incorrect";
         }
+        console.log(pokeObj)
         guessForm.guess.value = "";
         handleNewPoke()
     })
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const pokeImage = data.sprites.other["official-artwork"].front_default;
             const pokeType = data.types[0].type.name;
             
+            //Create Pokemon Object
             pokeObj = {
                 name: pokeName,
                 image: pokeImage,
@@ -46,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log(pokeObj)
 
-            //Create Card
+            //Create Pokemon Image
             pokeContainer.innerHTML = `
-            <img src="${pokeImage}">
+            <img src="${pokeObj.image}">
             `
         })      
     }
