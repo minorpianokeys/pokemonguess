@@ -31,9 +31,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const randomPokeNum = Math.floor(Math.random() * 150 + 1)
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokeNum}`)
         .then(res => res.json())
-        .then(function(data) {
+        .then(function(data) {   
             pokeName = data.name;
             const pokeImage = data.sprites.other["official-artwork"].front_default;
+            const pokeType = data.types[0].type.name;
+            
+            const pokeObj = {
+                name: pokeName,
+                image: pokeImage,
+                number: data.id,
+                type: pokeType,
+                answer: ""
+            }
+
+            console.log(pokeObj)
 
             //Create Card
             pokeContainer.innerHTML = `
@@ -42,3 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })      
     }
 })
+
+
+
