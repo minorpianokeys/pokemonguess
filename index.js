@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const startBtn = document.querySelector("#start")
     const pokeContainer = document.querySelector("#pokemonContainer")
     const resultsContainer = document.querySelector("#resultsContainer")
+    const restartBtn = document.querySelector("#restart")
 
     //Start Button
     startBtn.addEventListener('click', function() {
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleResults() {
         pokeContainer.remove();
         guessForm.remove();
+        restartBtn.style.visibility = "visible";
 
         //Calculate Score
         const correctAnswers = allPokeArr.filter(function (poke) {
@@ -97,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="${poke.image}">
         `
     }
+
+    //Handle Reset Button
+    restartBtn.addEventListener('click', () => this.location.reload())
 })
 
 
