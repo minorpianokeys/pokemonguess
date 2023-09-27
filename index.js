@@ -42,14 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(function(data) {   
             const pokeName = data.name;
             const pokeImage = data.sprites.other["official-artwork"].front_default;
-            const pokeType = data.types[0].type.name;
             
             //Create Pokemon Object
             pokeObj = {
                 name: pokeName,
                 image: pokeImage,
                 number: data.id,
-                type: pokeType,
                 answer: ""
             }
 
