@@ -68,5 +68,9 @@ body {
 
 .restart {
     visibility: hidden;
-    
+    font-family: futura;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    border-style: none;
 }
