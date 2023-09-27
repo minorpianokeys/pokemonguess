@@ -46,6 +46,7 @@ body {
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
+    font-family: futura;
     color: white;
     justify-content: center;
 }
