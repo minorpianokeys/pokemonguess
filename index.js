@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pokeContainer = document.querySelector("#pokemonContainer")
     const resultsContainer = document.querySelector("#resultsContainer")
 
-
+    //Start Button
     startBtn.addEventListener('click', function() {
         handleNewPoke()
         startBtn.remove();
