@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let allPokeArr = []
     
     function handleNewPoke() {
-        
         //Fetch Pokemon
         const randomPokeNum = Math.floor(Math.random() * 150 + 1)
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokeNum}`)
@@ -83,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     }
 
+    //Creates Card Container
     const cardContainer = document.createElement('div')
     resultsContainer.appendChild(cardContainer)
     cardContainer.classList = "cardContainer";
@@ -96,11 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <h4>#${poke.number} ${pokeNameCapital}: ${poke.answer}</h4>
         <img src="${poke.image}">
         `
-        // if (poke.answer === "correct") {
-        //     card.classList = "correct";
-        // } else {
-        //     card.classList = "incorrect";
-        // }
     }
 })
 
