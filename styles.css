@@ -47,6 +47,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     font-family: futura;
+    font-size: 10px;
     color: white;
     justify-content: center;
 }
